@@ -6,6 +6,9 @@ public class Spearman extends BaseUnit{
     static {
         Spearman.number = 0;
     }
+    /**
+     * 
+     */
     public Spearman(){
         super(String.format("Spearman #%d", ++Spearman.number),
         Spearman.r.nextInt(50, 100),

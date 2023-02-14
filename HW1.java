@@ -57,4 +57,5 @@ public class HW1 {
             System.out.println(unit.GetInfo());
         }
     }
+
 }

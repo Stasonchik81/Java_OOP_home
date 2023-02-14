@@ -4,8 +4,8 @@ import java.util.Random;
 public abstract class BaseUnit implements MainInterface{
     protected static int number;
     protected static Random r;
-    protected String name;
-    protected int hp;
+    private String name;
+    private int hp;
     protected int maxHp;
     protected int level;
     protected int protection;
@@ -41,8 +41,14 @@ public abstract class BaseUnit implements MainInterface{
                 BaseUnit.r.nextInt(5, 10)
                 );
     }
+    public String getName(){
+        return this.name;
+    }
+    public int getHp(){
+        return this.hp;
+    }
 
-    protected int Attack() {
+    public int Attack() {
          int damage = Math.round(this.level * this.powerHit * BaseUnit.r.nextInt(5, 10)/10);
          return damage;
     }
