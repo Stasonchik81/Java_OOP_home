@@ -10,7 +10,7 @@ public class Sniper extends Archer{
      * Снайпер. Отличается большим уроном при стрельбе.
      */
     public Sniper(){
-        super(String.format("Sniper #%d", ++number),
+        super(String.format("Sniper #%d", ++Sniper.number),
         Sniper.r.nextInt(60, 110), 
         1, 
         Sniper.r.nextInt(10, 20), 

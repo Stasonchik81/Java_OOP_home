@@ -8,7 +8,7 @@ public class Arbalester extends Archer {
      * Арбалетчик. Атакует как на расстоянии так и в ближнем бою.
      */
     public Arbalester(){
-        super(String.format("Arbalester #%d", ++number),
+        super(String.format("Arbalester #%d", ++Arbalester.number),
         Arbalester.r.nextInt(70, 120), 
         1, 
         Sniper.r.nextInt(12, 22), 

@@ -7,7 +7,7 @@ public class Spearman extends BaseUnit{
         Spearman.number = 0;
     }
     public Spearman(){
-        super(String.format("Spearman #%d", ++number),
+        super(String.format("Spearman #%d", ++Spearman.number),
         Spearman.r.nextInt(50, 100),
         1,
         Spearman.r.nextInt(12, 15),
