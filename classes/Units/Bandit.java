@@ -7,8 +7,11 @@ public class Bandit extends BaseUnit{
     /**
      * Разбойник. Крадёт вооружение блокируя персонажа на время.
      */
+    protected Bandit(String name, int hp, int level, int protection, int powerHit){
+        super(name, hp, level, protection, powerHit);
+    }
     public Bandit(){
-        super(String.format("Bandit #%d", ++Bandit.number),
+        this(String.format("Bandit #%d", ++Bandit.number),
         Bandit.r.nextInt(60, 110), 
         1, 
         Bandit.r.nextInt(10, 20), 

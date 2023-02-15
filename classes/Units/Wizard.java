@@ -7,8 +7,11 @@ public class Wizard extends MentalUnit{
     /**
      * Колдун. Обладает способностью направлять боевые заклинения и лечить
      */
+    protected Wizard(String name, int hp, int level, int protection, int powerHit, int mana){
+        super(name, hp, level, protection, powerHit, mana);
+    }
     public Wizard(){
-        super(String.format("Wizard #%d", ++Wizard.number), 
+        this(String.format("Wizard #%d", ++Wizard.number), 
         Wizard.r.nextInt(70, 120),
         1, 
         Wizard.r.nextInt(15, 25),

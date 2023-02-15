@@ -9,8 +9,11 @@ public class Monk extends MentalUnit{
      * Монах. Может благословить 
      * (повысить уровень защиты unit на время) 
      */
+    protected Monk(String name, int hp, int level, int protection, int powerHit, int mana){
+        super(name, hp, level, protection, powerHit, mana);
+    }
     public Monk(){
-        super(String.format("Monk #%d", ++Monk.number),
+        this(String.format("Monk #%d", ++Monk.number),
         Monk.r.nextInt(40, 60), 
         1, 
         Monk.r.nextInt(12, 23), 
