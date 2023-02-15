@@ -18,6 +18,7 @@ public abstract class Archer extends BaseUnit{
         this.arrows = maxArrows;
     }
 
+
     @Override
     public String toString() {
         return String.format("Name: %s,  Hp: %d, Type: %s, Level: %d, Protection: %d, Power: %d, MaxArrows: %d",

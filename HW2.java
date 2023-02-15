@@ -29,5 +29,7 @@ public class HW2 {
         for (BaseUnit unit : team1) {
             System.out.println(unit.GetInfo());
         }
+    
     }
+    
 }

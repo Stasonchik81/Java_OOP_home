@@ -7,8 +7,12 @@ public class Arbalester extends Archer {
     /**
      * Арбалетчик. Атакует как на расстоянии так и в ближнем бою.
      */
-    public Arbalester(){
-        super(String.format("Arbalester #%d", ++Arbalester.number),
+    protected Arbalester(String name, int hp, int level, int protection, int powerHit, int arrows){
+        super(name, hp, level, protection, powerHit, arrows);
+    }
+
+     public Arbalester(){
+        this(String.format("Arbalester #%d", ++Arbalester.number),
         Arbalester.r.nextInt(70, 120), 
         1, 
         Sniper.r.nextInt(12, 22), 
@@ -19,7 +23,7 @@ public class Arbalester extends Archer {
      * Стрелять.
      */
     @Override
-    protected int shoot() {
+    public int shoot() {
         int damage = Arbalester.r.nextInt(15, 25);
         --this.arrows;
         if (this.arrows<=0) return 0;
