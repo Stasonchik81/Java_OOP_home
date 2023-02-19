@@ -9,16 +9,19 @@ public class Monk extends MentalUnit{
      * Монах. Может благословить 
      * (повысить уровень защиты unit на время) 
      */
-    protected Monk(String name, int hp, int level, int protection, int powerHit, int mana){
-        super(name, hp, level, protection, powerHit, mana);
+    protected Monk(String name, int hp, int lucky, int protection, int maxPower, int power, int speed, int mana, String team){
+        super(name, hp, lucky, protection, maxPower, power, speed, mana, team);
     }
-    public Monk(){
+    public Monk(String team){
         this(String.format("Monk #%d", ++Monk.number),
-        Monk.r.nextInt(40, 60), 
-        1, 
-        Monk.r.nextInt(12, 23), 
-        Monk.r.nextInt(9, 18),
-        Monk.r.nextInt(15, 20));
+        30, 
+        100, 
+        7, 
+        5,
+        2,
+        5,
+        10,
+        team);
     }
     /**
      * Благословить
@@ -27,22 +30,10 @@ public class Monk extends MentalUnit{
      * @return protected points
      * */
     public int bless(){
-        int point = Monk.r.nextInt(5, 10);
+        int point = Monk.r.nextInt(3, 6);
         this.mana -= (int)(point * 0.5);
         if (this.mana<=0) return 0;
         else return point;
-    }
-    /**
-     * Лечить (восстанавливает часть hp)
-     * @return hp
-     */
-    @Override
-    protected int treat() {
-        int hp = Monk.r.nextInt(12, 17);
-        this.mana -= (int)(hp * 0.3);
-        if(mana<0)return 0;
-        else return hp;
-    }
-    
+    }  
     
 }

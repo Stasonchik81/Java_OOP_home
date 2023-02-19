@@ -7,15 +7,18 @@ public class Bandit extends BaseUnit{
     /**
      * Разбойник. Крадёт вооружение блокируя персонажа на время.
      */
-    protected Bandit(String name, int hp, int level, int protection, int powerHit){
-        super(name, hp, level, protection, powerHit);
+    protected Bandit(String name, int hp, int lucky,int protection, int maxPower, int power, int speed, String team){
+        super(name, hp, lucky, protection, maxPower, power, speed, team);
     }
-    public Bandit(){
+    public Bandit(String team){
         this(String.format("Bandit #%d", ++Bandit.number),
-        Bandit.r.nextInt(60, 110), 
-        1, 
-        Bandit.r.nextInt(10, 20), 
-        Bandit.r.nextInt(7, 15));
+        10, 
+        100, 
+        3,
+        4, 
+        2,
+        6,
+        team);
     }
     /**
      * Украсть
@@ -26,4 +29,5 @@ public class Bandit extends BaseUnit{
         isBlock = Peasant.r.nextInt(1, 3)>2 ? true : false;
         return isBlock;
     }
+
 }

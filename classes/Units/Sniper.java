@@ -9,26 +9,19 @@ public class Sniper extends Archer{
     /**
      * Снайпер. Отличается большим уроном при стрельбе.
      */
-    protected Sniper(String name, int hp, int level, int protection, int powerHit, int arrows){
-        super(name, hp, level, protection, powerHit, arrows);
+    protected Sniper(String name, int hp, int lucky, int protection, int maxPower, int power, int speed, int arrows, String team){
+        super(name, hp, lucky, protection, maxPower, power, speed, arrows, team);
     }
 
-    public Sniper(){
+    public Sniper(String team){
         this(String.format("Sniper #%d", ++Sniper.number),
-        Sniper.r.nextInt(60, 110), 
-        1, 
-        Sniper.r.nextInt(10, 20), 
-        Sniper.r.nextInt(7, 15),
-        Sniper.r.nextInt(3, 5));
-    }
-    /**
-     * Стрелять
-     */
-    @Override
-    public int shoot() {
-        int damage = Sniper.r.nextInt(25, 35);
-        --this.arrows;
-        if (this.arrows<=0) return 0;
-        else return damage;
+        15, 
+        100, 
+        10, 
+        10,
+        8,
+        9,
+        32,
+        team);
     }
 }

@@ -6,26 +6,26 @@ public abstract class Archer extends BaseUnit{
 /**
  * Лучник
  * @param name имя
+ * @param maxHp максимальное здоровье
  * @param hp здоровье
- * @param level уровень
+ * @param lucky удача
  * @param protection защита
  * @param powerHit сила удара
  * @param arrows количество стрел
  */
-    protected Archer(String name, int hp, int level, int protection, int powerHit, int arrows){
-        super(name, hp, level, protection, powerHit);
+    protected Archer(String name, int hp, int lucky, int protection, int maxPower, int power, int speed, int arrows, String team){
+        super(name, hp, lucky, protection, maxPower, power, speed, team);
         this.maxArrows = arrows;
         this.arrows = maxArrows;
     }
-
-
-    @Override
-    public String toString() {
-        return String.format("Name: %s,  Hp: %d, Type: %s, Level: %d, Protection: %d, Power: %d, MaxArrows: %d",
-                this.getName(), this.getHp(), this.getClass().getSimpleName(),
-                this.level, this.protection, this.powerHit, this.maxArrows);
+    /**
+     * Стрелять.
+     */
+    protected int shoot() {
+        int damage = Sniper.r.nextInt(power, maxPower);
+        --this.arrows;
+        if (this.arrows<=0) return 0;
+        else return damage;
     }
-
-    protected abstract int shoot();
 
 }

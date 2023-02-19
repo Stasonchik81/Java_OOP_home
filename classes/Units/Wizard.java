@@ -7,37 +7,29 @@ public class Wizard extends MentalUnit{
     /**
      * Колдун. Обладает способностью направлять боевые заклинения и лечить
      */
-    protected Wizard(String name, int hp, int level, int protection, int powerHit, int mana){
-        super(name, hp, level, protection, powerHit, mana);
+    protected Wizard(String name, int hp, int lucky, int protection, int maxPower, int power, int speed, int mana, String team){
+        super(name, hp, lucky, protection, maxPower, power, speed, mana, team);
     }
-    public Wizard(){
+    public Wizard(String team){
         this(String.format("Wizard #%d", ++Wizard.number), 
-        Wizard.r.nextInt(70, 120),
-        1, 
-        Wizard.r.nextInt(15, 25),
-        Wizard.r.nextInt(10, 20),
-        Wizard.r.nextInt(20, 30));
+        30,
+        100, 
+        12,
+        5,
+        3,
+        9,
+        10,
+        team);
     }
     /**
      * Колдовать (нанесение урона заклинанием)
      * @return damage (-hp)
      *  */ 
     public int hex(){
-        int damage = Wizard.r.nextInt(7, 10);
+        int damage = Wizard.r.nextInt(maxPower, power);
         this.mana -= (int)(damage * 0.8);
         if(mana<0)return 0;
         else return damage;
-    }
-
-    /**
-     * Лечить (восстанавливает часть hp)
-     * @return +hp
-     */
-    public int treat(){
-        int hp = Wizard.r.nextInt(5, 10);
-        this.mana -= (int)(hp * 0.5);
-        if(mana<0)return 0;
-        else return hp;
     }
 
 }

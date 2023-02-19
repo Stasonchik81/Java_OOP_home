@@ -11,22 +11,25 @@ public class Peasant extends BaseUnit{
      * восстанавливает mana, 
      * Снайперу и арбалетчику восстанавливает запас стрел
      */
-    protected Peasant(String name, int hp, int level, int protection, int powerHit){
-        super(name, hp, level, protection, powerHit);
+    protected Peasant(String name, int hp, int lucky,int protection, int maxPower, int power, int speed, String team){
+        super(name, hp, lucky, protection, maxPower, power, speed, team);
     }
-    public Peasant(){
+    public Peasant(String team){
         this(String.format("Peasant #%d", ++Peasant.number),
-        Peasant.r.nextInt(50, 100),
+        3,
+        100,
         1,
-        Peasant.r.nextInt(2, 5),
-        Peasant.r.nextInt(2, 5));
+        2,
+        1,
+        3,
+        team);
     }
    /**
     * Кормить
     * @return mana
     */
     public int feed(){
-        int points = Peasant.r.nextInt(10, 20);
+        int points = Peasant.r.nextInt(5, 10);
         return points;
     }
     /**
@@ -34,7 +37,7 @@ public class Peasant extends BaseUnit{
      * @return arrows
      */
     public int makeUpArrows(){
-        int arrows = Peasant.r.nextInt(5, 10);
+        int arrows = Peasant.r.nextInt(1, 3);
         return arrows;
     }
 }

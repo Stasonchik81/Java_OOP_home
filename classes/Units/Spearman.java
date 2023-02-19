@@ -9,15 +9,18 @@ public class Spearman extends BaseUnit{
     /**
      * 
      */
-    protected Spearman(String name, int hp, int level, int protection, int powerHit){
-        super(name, hp, level, protection, powerHit);
+    protected Spearman(String name, int hp, int lucky,int protection, int maxPower, int power, int speed, String team){
+        super(name, hp, lucky, protection, maxPower, power, speed, team);
     }
 
-    public Spearman(){
+    public Spearman(String team){
         this(String.format("Spearman #%d", ++Spearman.number),
-        Spearman.r.nextInt(50, 100),
+        10,
+        100,
+        5,
+        3,
         1,
-        Spearman.r.nextInt(12, 15),
-        Spearman.r.nextInt(10, 15));
+        2,
+        team);
     }
 }
