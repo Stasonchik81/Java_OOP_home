@@ -1,4 +1,4 @@
-package classes;
+package classes.Other;
 
 public class Priest extends BaseHero{
     private static final String HERO_PRIEST_D = "Hero_Priest #%d";

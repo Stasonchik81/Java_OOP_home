@@ -1,45 +1,32 @@
 import java.util.ArrayList;
-import classes.SpeedComparator;
-import classes.Team;
-import classes.Units.*;
+
+import classes.BaseClass.BaseUnit;
+import classes.BaseClass.Fortress;
+import classes.BaseClass.SpeedComparator;
+import classes.BaseClass.Team;
+import classes.Other.*;
+
 import java.util.Random;
 
 public class HW3 {
     public static void main(String[] args) {
-        Team first = new Team("Завоеватели");
-        Team second = new Team("Защитники");
+        Team <BaseUnit>first = new Team<>("Стрелки");
+        Team <BaseUnit>second = new Team<>("Волшебники");
         Random r = new Random();
+
         for (int i = 0; i < 11; i++) {
-            switch(r.nextInt(1, 5)){
-                case 1: first.units.add(new Peasant(first.getName()));
-                break;
-                case 2: first.units.add(new Bandit(first.getName()));
-                break;
-                case 3: first.units.add(new Sniper(first.getName()));
-                break;
-                case 4: first.units.add(new Wizard(first.getName()));
-                break;
-            }   
+           first.add(Fortress.createUnit(r.nextInt(1, 5), first.getName()));
         }
         for (int i = 0; i < 11; i++) {
-            switch(r.nextInt(1, 4)){
-                case 1: second.units.add(new Peasant(second.getName()));
-                break;
-                case 2: second.units.add(new Spearman(second.getName()));
-                break;
-                case 3: second.units.add(new Monk(second.getName()));
-                break;
-                case 4: second.units.add(new Arbalester(second.getName()));
-                break;
+            second.add(Fortress.createUnit(r.nextInt(5, 9), second.getName()));
             }
-                
-        }
-        ArrayList<BaseUnit> teams = new ArrayList<BaseUnit>(first.units);
-        teams.addAll(second.units);
-        teams.sort(new SpeedComparator());
-        // teams.sort(null); /*сортировка по умолчанию по hp*/
-        for (BaseUnit unit : teams) {
-            System.out.println(unit);
+            ArrayList<BaseUnit> teams = new ArrayList<BaseUnit>(first.units);
+            teams.addAll(second.units);
+            teams.sort(new SpeedComparator());
+            // teams.sort(null); /*сортировка по умолчанию по hp*/
+            for (BaseUnit unit : teams) {
+                System.out.println(unit);
+            }
+       
         }
     }
-}

@@ -1,11 +1,20 @@
-import classes.Team;
-import classes.Units.*;
+import classes.BaseClass.BaseUnit;
+import classes.BaseClass.Team;
+import classes.BaseClass.Archer.units.Arbalester;
+import classes.BaseClass.Archer.units.Sniper;
+import classes.BaseClass.Mental.units.Monk;
+import classes.BaseClass.Mental.units.Wizard;
+import classes.BaseClass.units.Bandit;
+import classes.BaseClass.units.Peasant;
+import classes.BaseClass.units.Spearman;
+import classes.Other.*;
+
 import java.util.Random;
 
 
 public class HW2 {
     public static void main(String[] args) {
-        Team team1 = new Team("team1");
+        Team <BaseUnit> team1 = new Team<>("team1");
         Random r = new Random();
         String teamName = team1.getName();
         for (int i = 0; i < 11; i++) {

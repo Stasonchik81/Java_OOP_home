@@ -1,5 +1,4 @@
-package classes;
-
+package classes.Other;
 
 public class Magician extends BaseHero{
     private int mana;

@@ -1,10 +1,10 @@
-import classes.Units.Arbalester;
-import classes.Units.Bandit;
-import classes.Units.Monk;
-import classes.Units.Peasant;
-import classes.Units.Sniper;
-import classes.Units.Spearman;
-import classes.Units.Wizard;
+import classes.BaseClass.Archer.units.Arbalester;
+import classes.BaseClass.Archer.units.Sniper;
+import classes.BaseClass.Mental.units.Monk;
+import classes.BaseClass.Mental.units.Wizard;
+import classes.BaseClass.units.Bandit;
+import classes.BaseClass.units.Peasant;
+import classes.BaseClass.units.Spearman;
 
 /**
  * HW1
