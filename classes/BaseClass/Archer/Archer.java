@@ -1,9 +1,12 @@
 package classes.BaseClass.Archer;
 
+import java.util.ArrayList;
+
 import classes.BaseClass.BaseUnit;
 import classes.BaseClass.Distance;
 import classes.BaseClass.Position2D;
 import classes.BaseClass.Team;
+import classes.BaseClass.units.Peasant;
 
 public abstract class Archer extends BaseUnit{
     protected int arrows;
@@ -33,7 +36,7 @@ public abstract class Archer extends BaseUnit{
         }
         else this.arrows = 0;
     }
-    
+
     public void setUpArrows(int arr){
             this.arrows += arr;
     }
@@ -56,7 +59,7 @@ public abstract class Archer extends BaseUnit{
         }
         if (this.arrows>0){
             unit.GetDamage(damage);
-            this.arrows--;
+            this.getTeam();
         }
     }
     public void step(Team<BaseUnit>a, Team<BaseUnit>b){
@@ -64,6 +67,36 @@ public abstract class Archer extends BaseUnit{
         BaseUnit target = b.units.get(pos.findNearest(b));
         Distance range = pos.getRange(target.getPosition());
         shoot(target, range);
+        var peasantList = new ArrayList<Peasant>();
+        for (BaseUnit unit : a.units) {
+            if(unit.GetInfo()=="Peasant" && unit.state == State.Alive){
+                peasantList.add((Peasant)unit);
+            }
+        }
+        if(findReady(peasantList))this.arrows++;
+        else this.arrows--;
+
+        
+    }
+    protected boolean findReady(ArrayList<Peasant>p){
+        for (Peasant unit : p) {
+            if (unit.ready){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String stat(){
+        return String.format("%s\t%d\t%d\t%d\t%s\t%s\t\t%d", 
+                            this.getTeam(),
+                            this.hp,
+                            this.maxHp,
+                            this.power,
+                            this.state,
+                            this.getClass().getSimpleName(),
+                            this.arrows
+                            );
     }
 
 }
