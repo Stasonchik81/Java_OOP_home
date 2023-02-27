@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 
 
-public class HW4 {
+public class HW5 {
     static final int UNITS = 10;
     static String getName() {
         String name = String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
@@ -56,4 +56,3 @@ public class HW4 {
         
    }
 }
-    

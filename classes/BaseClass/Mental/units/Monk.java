@@ -19,8 +19,8 @@ public class Monk extends MentalUnit{
     protected Monk(String name, int hp, int lucky, int protection, int maxPower, int power, int speed, int mana, String team, Position2D pos){
         super(name, hp, lucky, protection, maxPower, power, speed, mana, team, pos);
     }
-    public Monk(String team, Position2D pos){
-        this(String.format("Monk #%d", ++Monk.number),
+    public Monk(String name, String team, Position2D pos){
+        this(name,
         30, 
         100, 
         7, 
@@ -36,7 +36,7 @@ public class Monk extends MentalUnit{
      * @return protections points
      * */
     public void bless(BaseUnit unit){
-        int points = Monk.r.nextInt(10, 20);
+        int points = Monk.r.nextInt(5, 10);
         if(mana>(int)(points * 0.5)){
             this.mana -= (int)(points * 0.5);
             unit.upProtection(points);

@@ -15,8 +15,8 @@ public class Wizard extends MentalUnit{
     protected Wizard(String name, int hp, int lucky, int protection, int maxPower, int power, int speed, int mana, String team, Position2D pos){
         super(name, hp, lucky, protection, maxPower, power, speed, mana, team, pos);
     }
-    public Wizard(String team, Position2D pos){
-        this(String.format("Wizard #%d", ++Wizard.number), 
+    public Wizard(String name, String team, Position2D pos){
+        this(name, 
         30,
         100, 
         12,

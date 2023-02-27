@@ -16,8 +16,8 @@ public class Bandit extends BaseUnit{
     protected Bandit(String name, int hp, int lucky,int protection, int maxPower, int power, int speed, String team, Position2D pos){
         super(name, hp, lucky, protection, maxPower, power, speed, team, pos);
     }
-    public Bandit(String team, Position2D pos){
-        this(String.format("Bandit #%d", ++Bandit.number),
+    public Bandit(String name, String team, Position2D pos){
+        this(name,
         10, 
         100, 
         3,

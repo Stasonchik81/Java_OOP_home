@@ -17,8 +17,8 @@ public class Sniper extends Archer{
         super(name, hp, lucky, protection, maxPower, power, speed, arrows, team, pos);
     }
 
-    public Sniper(String team, Position2D pos){
-        this(String.format("Sniper #%d", ++Sniper.number),
+    public Sniper(String name, String team, Position2D pos){
+        this(name,
         15, 
         100, 
         10, 

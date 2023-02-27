@@ -20,7 +20,7 @@ public abstract class BaseUnit implements MainInterface, Comparable<BaseUnit>{
     protected enum State{
         Alive, IsDead
     }
-    protected State state; 
+    public State state; 
 
     static {
         BaseUnit.r = new Random();
@@ -69,6 +69,9 @@ public abstract class BaseUnit implements MainInterface, Comparable<BaseUnit>{
     public int getSpeed(){
         return this.speed;
     }
+    public boolean getDamaged(){
+        return this.hp != this.maxHp;
+    }
     public Position2D getPosition(){
         return this.pos;
     }
@@ -94,7 +97,7 @@ public abstract class BaseUnit implements MainInterface, Comparable<BaseUnit>{
      * Лечиться
      * @param Hp величина восстанавливаемого здоровья
      */
-    protected void healed(int Hp) {
+    public void healed(int Hp) {
         this.hp = Hp + this.hp > this.maxHp ? this.maxHp : Hp + this.hp;
     }
     /**
@@ -118,6 +121,18 @@ public abstract class BaseUnit implements MainInterface, Comparable<BaseUnit>{
             this.state = State.IsDead; 
         }
     }
+    public String stat(){
+        return String.format("%s\t%d\t%d\t%d\t%s\t%s", 
+                            this.team,
+                            this.hp,
+                            this.maxHp,
+                            this.power,
+                            this.state,
+                            this.getClass().getSimpleName()
+                            );
+    }
+        
+    
 
     @Override
     public String GetInfo() {

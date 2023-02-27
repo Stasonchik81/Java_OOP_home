@@ -15,8 +15,8 @@ public class Arbalester extends Archer {
         super(name, hp, lucky, protection, maxPower, power, speed, arrows, team, pos);
     }
 
-     public Arbalester(String team, Position2D pos){
-        this(String.format("Arbalester #%d", ++Arbalester.number),
+     public Arbalester(String name, String team, Position2D pos){
+        this(name,
         10, 
         100, 
         3, 

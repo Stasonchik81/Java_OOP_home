@@ -19,8 +19,8 @@ public class Spearman extends BaseUnit{
         super(name, hp, lucky, protection, maxPower, power, speed, team, pos);
     }
 
-    public Spearman(String team, Position2D pos){
-        this(String.format("Spearman #%d", ++Spearman.number),
+    public Spearman(String name, String team, Position2D pos){
+        this(name,
         10,
         100,
         5,

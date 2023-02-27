@@ -40,5 +40,16 @@ public abstract class MentalUnit extends BaseUnit{
     public void downMana(int mana){
         this.mana = this.mana - mana > 0 ? this.maxMana - mana : 0;
     }
+    public String stat(){
+        return String.format("%s\t%d\t%d\t%d\t%s\t%s\t\t%d", 
+                            this.getTeam(),
+                            this.hp,
+                            this.maxHp,
+                            this.power,
+                            this.state,
+                            this.getClass().getSimpleName(),
+                            this.mana
+                            );
+    }
     
 }
